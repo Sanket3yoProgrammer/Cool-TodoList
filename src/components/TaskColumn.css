@@ -1,0 +1,36 @@
+.task_column_heading {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 3px solid #add8e6; /* Mild blue color */
+}
+
+.task_column_icon {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.task_column {
+    flex: 1; /* Allow the column to grow and fill available space */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-start; /* Align items at the start */
+    min-height: 200px; /* Set a minimum height for the column */
+}
+
+.no-tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1; /* Allow the no-tasks message to take up available space */
+    padding: 20px;
+    color: #999; /* Light gray color for the text */
+}
+
+.no-tasks-icon {
+    font-size: 50px; /* Size of the icon */
+    margin-bottom: 10px; /* Space between icon and text */
+}

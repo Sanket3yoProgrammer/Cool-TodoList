@@ -1,0 +1,180 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+}
+
+.app_main {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.task_column {
+    flex: 1;
+    min-width: 300px;
+    margin: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.task_column:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.animated-icon {
+    font-size: 30px;
+    color: #ff6347;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #33323a;
+    color: #ffffff;
+}
+
+body.dark-mode .app {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .task_column {
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+body.dark-mode .task_column_heading {
+    border-bottom: 3px solid #363677;
+}
+
+body.dark-mode .task_card {
+    border: 3px solid #363677;
+}
+
+body.dark-mode .task_input,
+body.dark-mode .task_status,
+body.dark-mode .task_submit,
+body.dark-mode .tag {
+    background: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+/* Unique Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(0.9); filter: brightness(1); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+@keyframes flip {
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(180deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+/* Applying Animations to Icons */
+.icon-todo {
+    color: #ff6347;
+    animation: bounce 1.2s infinite;
+}
+
+.icon-doing {
+    color: #ffa500;
+    animation: spin 3s linear infinite;
+}
+
+.icon-done {
+    color: #32cd32;
+    animation: pulse 1.5s infinite;
+}
+
+/* Hover Effects */
+.animated-icon:hover {
+    transform: scale(1.2) rotate(-10deg);
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.7));
+}
+
+.icon-special {
+    color: #007bff;
+    animation: flip 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .app_main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .task_column {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+.dark-mode-toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    padding: 10px;
+    z-index: 40;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode-toggle-container:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.3s;
+}
+
+.dark-mode-toggle .fa-sun {
+    color: #FFD700; /* Yellowish color for the sun */
+}
+
+.dark-mode-toggle .fa-moon {
+    color: #1E90FF; /* Blue color for the moon */
+    text-shadow: 0 0 10px rgba(30, 144, 255, 0.8); /* Glowing effect */
+}
+
+.dark-mode-toggle:hover {
+    transform: rotate(360deg);
+}
+
+.dark-mode-toggle-container:hover .dark-mode-toggle .fa-sun,
+.dark-mode-toggle-container:hover .dark-mode-toggle .fa-moon {
+    transform: scale(1.2); /* Scale the icon on hover */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
